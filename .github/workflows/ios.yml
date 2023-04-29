@@ -100,7 +100,9 @@ jobs:
         name: 'GENERATING: generate jhipster backend'
       - run: $SCRIPT_DIR/generate-react-native-app.sh
         name: 'GENERATING: generate react-native app'
-      - run: $SCRIPT_DIR/run-detox-tests.sh
+      - run: |
+         cat e2e/account/change-password-screen.spec.js
+         $SCRIPT_DIR/run-detox-tests.sh
         name: 'TESTING: run detox tests'
       - run: $SCRIPT_DIR/rename-detox-screenshots.sh
         name: 'TESTING: rename detox screenshots to a valid filename'
