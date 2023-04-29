@@ -1,12 +1,34 @@
 {
+  "apps": {
+    "myApp.ios": {
+      "type": "ios.app",
+      "binaryPath": "e2e/Exponent.app",
+    },
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 12",
+      },
+    },
+  },
   "configurations": {
     "ios.sim.release": {
+      /* REMOVE (!) "type": "ios.simulator" */
+      "device": "simulator",
+      "app": "myApp.ios",
+    }
+  },
+  <!-- "configurations": {
+    "ios.sim.release": {
       "binaryPath": "e2e/Exponent.app",
+      "type": "ios.simulator",
       "device": {
         "type": "iPhone 12"
       }
     }
-  },
+  }, -->
   "artifacts": {
     "rootDir": ".artifacts",
     "plugins": {
