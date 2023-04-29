@@ -31,6 +31,10 @@
       }
     }
   },
-  "test-runner": "jest",
-  "runner-config": "./e2e/config.json"
+  testRunner: {
+    $0: 'jest',
+    args: {
+      config: './e2e/config.json',
+    },
+  },
 }
