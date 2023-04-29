@@ -1,11 +1,9 @@
 const { DetoxCircusEnvironment, SpecReporter, WorkerAssignReporter } = require('detox/runners/jest-circus');
-const { init: initExpo } = require('@ruddell/detox-expo-helpers');
 
 class CustomDetoxEnvironment extends DetoxCircusEnvironment {
   constructor(config, context) {
     super(config, context);
 
-    initExpo();
     // Can be safely removed, if you are content with the default value (=300000ms)
     this.initTimeout = 300000;
 

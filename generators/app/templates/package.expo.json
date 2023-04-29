@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "@expo/webpack-config": "^0.17.2",
-    "jest-expo": "*"
+    "jest-expo": "^46.0.1"
   }
 }
