@@ -102,6 +102,7 @@ jobs:
         name: 'GENERATING: generate react-native app'
       - run: |
           npm install detox --save-dev
+          ls
           $SCRIPT_DIR/run-detox-tests.sh
         name: 'TESTING: run detox tests'
       - run: $SCRIPT_DIR/rename-detox-screenshots.sh
