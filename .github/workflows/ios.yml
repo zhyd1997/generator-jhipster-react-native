@@ -100,10 +100,10 @@ jobs:
         name: 'GENERATING: generate jhipster backend'
       - run: |
           $SCRIPT_DIR/generate-react-native-app.sh
-          cat e2e/home-screen.spec.js
         name: 'GENERATING: generate react-native app'
       - run: |
-         $SCRIPT_DIR/run-detox-tests.sh
+          cat ./e2e/home-screen.spec.js
+          $SCRIPT_DIR/run-detox-tests.sh
         name: 'TESTING: run detox tests'
       - run: $SCRIPT_DIR/rename-detox-screenshots.sh
         name: 'TESTING: rename detox screenshots to a valid filename'
