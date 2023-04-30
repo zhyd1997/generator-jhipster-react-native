@@ -100,7 +100,7 @@ jobs:
         name: 'GENERATING: generate jhipster backend'
       - run: |
           $SCRIPT_DIR/generate-react-native-app.sh
-          cat e2e/account/change-password-screen.spec.js
+          cat e2e/home-screen.spec.js
         name: 'GENERATING: generate react-native app'
       - run: |
          $SCRIPT_DIR/run-detox-tests.sh
