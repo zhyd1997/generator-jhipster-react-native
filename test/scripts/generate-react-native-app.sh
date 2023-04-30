@@ -13,7 +13,7 @@ if [ "$JHIPSTER_VERSION" = "6" ]; then
   --defaults --no-insight --skip-git
 else
   jhipster --blueprints react-native jdl ../${JHI_REACT_NATIVE_APP_NAME}.jdl \
-  --defaults --no-insight --skip-git
+  --defaults --no-insight --skip-git && cat e2e/home-screen.spec.js
 fi
 
 # list files
