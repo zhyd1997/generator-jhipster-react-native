@@ -1,9 +1,11 @@
-const { DetoxCircusEnvironment, SpecReporter } = require('detox/runners/jest-circus');
+const { DetoxCircusEnvironment, SpecReporter, WorkerAssignReporter } = require('detox/runners/jest-circus');
 
 class CustomDetoxEnvironment extends DetoxCircusEnvironment {
   constructor(config, context) {
     super(config, context);
 
+
+    console.log(SpecReporter, WorkerAssignReporter)
     // Can be safely removed, if you are content with the default value (=300000ms)
     this.initTimeout = 300000;
 
@@ -11,6 +13,7 @@ class CustomDetoxEnvironment extends DetoxCircusEnvironment {
     // This is strictly optional.
     this.registerListeners({
       SpecReporter,
+      WorkerAssignReporter,
     });
   }
 }
