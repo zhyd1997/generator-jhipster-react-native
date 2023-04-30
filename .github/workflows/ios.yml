@@ -98,12 +98,9 @@ jobs:
         name: 'SETUP: copy the JDL file for the backend and app'
       - run: $SCRIPT_DIR/generate-jhipster-backend.sh
         name: 'GENERATING: generate jhipster backend'
-      - run: |
-          $SCRIPT_DIR/generate-react-native-app.sh
+      - run: $SCRIPT_DIR/generate-react-native-app.sh
         name: 'GENERATING: generate react-native app'
-      - run: |
-          ls e2e
-          cat ./e2e/home-screen.spec.js
+      - run: $SCRIPT_DIR/run-detox-tests.sh
         name: 'TESTING: run detox tests'
       - run: $SCRIPT_DIR/rename-detox-screenshots.sh
         name: 'TESTING: rename detox screenshots to a valid filename'
