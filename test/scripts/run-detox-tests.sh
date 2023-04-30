@@ -47,6 +47,7 @@ else
     echo "TODO: Mock Auth so that the entity pages can be tested"
 fi
 
+echo ${JHI_REACT_NATIVE_APP_NAME}
 # switch to react-native app directory
 cd ../${JHI_REACT_NATIVE_APP_NAME}
 
