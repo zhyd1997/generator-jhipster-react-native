@@ -18,3 +18,6 @@ fi
 
 # list files
 ls -al
+
+# install deps
+npm install -g @react-native-community/cli@latest
