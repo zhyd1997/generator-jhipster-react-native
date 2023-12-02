@@ -1,8 +1,12 @@
 {
-  "testEnvironment": "./environment",
+  "testEnvironment": "detox/runners/jest/testEnvironment",
+  "globalSetup": "detox/runners/jest/globalSetup",
+  "globalTeardown": "detox/runners/jest/globalTeardown",
   "testRunner": "jest-circus/runner",
   "testTimeout": 300000,
-  "testRegex": "\\.spec\\.js$",
+  "maxWorkers": 1,
+  "rootDir": "..",
+  "testMatch": ["<rootDir>/e2e/**/*.spec.js"],
   "reporters": ["detox/runners/jest/streamlineReporter"],
   "verbose": true
 }
