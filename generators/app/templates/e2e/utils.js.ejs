@@ -2,7 +2,7 @@ const { device } = require('detox');
 
 const username = process.env.E2E_USERNAME || 'user';
 const password = process.env.E2E_PASSWORD || 'user';
-const expoPublishedUrl = process.env.E2E_EXPO_URL || 'exp://localhost:19000';
+const expoPublishedUrl = process.env.E2E_EXPO_URL || 'exp://localhost:8081';
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
