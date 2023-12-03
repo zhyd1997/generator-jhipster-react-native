@@ -6,6 +6,6 @@ describe('Home Screen Tests', () => {
   })
 
   it('should have welcome screen', async () => {
-    await expect(element(by.id('homeScreen'))).toBeVisible()
+    await waitFor(element(by.id('homeScreen'))).toBeVisible().withTimeout(2000)
   })
 })
