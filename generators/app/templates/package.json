@@ -39,6 +39,7 @@
     "@storybook/theming": "7.6.1",
     "@testing-library/jest-native": "5.4.3",
     "@testing-library/react-native": "12.4.0",
+    "@zhyd1997/detox-expo-helpers": "^0.0.1",
     "babel-jest": "29.7.0",
     "babel-preset-env": "1.7.0",
     "buffer": "6.0.3",
