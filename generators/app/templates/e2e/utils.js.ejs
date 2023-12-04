@@ -108,7 +108,7 @@ const waitForElementToBeVisibleById = async (elementId, timeout = 5000) => {
 const reloadApp = async (bailOnFailure) => {
   try {
     // disabling Detox synchronization - broken for Expo apps in Detox 18+, speeds up tests at the cost of using waitFor
-    await DetoxExpoHelpers.reloadApp({ url: expoPublishedUrl, launchArgs: { detoxEnableSynchronization: false } });
+    await DetoxExpoHelpers.reloadApp({ url: expoPublishedUrl, launchArgs: { detoxEnableSynchronization: false }, urlBlacklist: expoPublishedUrl });
     // if you eject from expo, you should replace the line above with:
     // device.reloadReactNative()
     await waitForElementToBeVisibleById('homeScreen', 15000);
