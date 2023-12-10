@@ -2,7 +2,7 @@ const { reloadApp } = require('./utils')
 
 describe('Home Screen Tests', () => {
   beforeEach(async () => {
-    await reloadApp()
+    await device.launchApp()
   })
 
   it('should have welcome screen', async () => {
