@@ -1,5 +1,3 @@
-const DetoxExpoHelpers = require('@zhyd1997/detox-expo-helpers')
-
 const username = process.env.E2E_USERNAME || 'user';
 const password = process.env.E2E_PASSWORD || 'user';
 const expoPublishedUrl = process.env.E2E_EXPO_URL || 'exp://localhost:8081';
@@ -107,12 +105,7 @@ const waitForElementToBeVisibleById = async (elementId, timeout = 5000) => {
 
 const reloadApp = async (bailOnFailure) => {
   try {
-    // disabling Detox synchronization - broken for Expo apps in Detox 18+, speeds up tests at the cost of using waitFor
-    await DetoxExpoHelpers.reloadApp({ url: expoPublishedUrl, launchArgs: { detoxEnableSynchronization: false }, urlBlacklist: expoPublishedUrl });
-    // if you eject from expo, you should replace the line above with:
-    // device.reloadReactNative()
-    await waitForElementToBeVisibleById('homeScreen', 15000);
-    await waitForElementToBeVisibleById('drawerButton', 15000);
+    await device.launchApp({ url: expoPublishedUrl });
   } catch (e) {
     console.warn('Reloading app failed, retrying once');
     console.warn(e);
