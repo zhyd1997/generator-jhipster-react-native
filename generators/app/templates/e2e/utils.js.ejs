@@ -109,9 +109,9 @@ const reloadApp = async (bailOnFailure) => {
   } catch (e) {
     console.warn('Reloading app failed, retrying once');
     console.warn(e);
-    if (!bailOnFailure) {
+    <!-- if (!bailOnFailure) {
       await reloadApp(true);
-    }
+    } -->
   }
 };
 
