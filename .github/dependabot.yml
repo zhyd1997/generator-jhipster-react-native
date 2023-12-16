@@ -15,6 +15,40 @@ updates:
       day: 'wednesday'
     open-pull-requests-limit: 30
     versioning-strategy: increase
+    groups:
+      typescript-eslint:
+        patterns:
+          - '@typescript-eslint/*'
+      expo-managed:
+        patterns:
+          - '@react-native-async-storage/async-storage'
+          - '@react-native-community/datetimepicker'
+          - '@react-native-masked-view/masked-view'
+          - '@react-native-picker/picker'
+          - 'expo-auth-session'
+          - 'expo-image-picker'
+          - 'expo-linking'
+          - 'expo-random'
+          - 'expo-splash-screen'
+          - 'expo-web-browser'
+          - 'react-native-gesture-handler'
+          - 'react-native-reanimated'
+          - 'react-native-safe-area-context'
+          - 'react-native-screens'
+      redux:
+        patterns:
+          - '@reduxjs/*'
+          - '*-redux'
+          - 'redux'
+          - 'redux-*'
+  - package-ecosystem: 'npm'
+    directory: '/generators/app/resources/expo/'
+    schedule:
+      interval: 'weekly'
+      # Check for npm updates on Wednesday due to Expo updates
+      day: 'wednesday'
+    open-pull-requests-limit: 30
+    versioning-strategy: increase
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
