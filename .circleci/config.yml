@@ -18,49 +18,49 @@ orbs:
 #       xcode: 15.1.0
 
 jobs:
-  jhipster:
-    docker:
-      - image: cimg/openjdk:11.0
-    environment:
-      JHI_REACT_NATIVE_APP_NAME: 'OauthApp'
-      JHI_AUTH_TYPE: 'oauth2'
-      JHI_DTO: 'false'
-      JHIPSTER_VERSION: 7
-      SCRIPT_DIR: ./test/scripts
-      PLATFORM: ios
-      JHI_RECORD_VIDEO: ${{ github.event.inputs.recordVideo || 'false' }}
-      JHI_SCREENSHOTS: ${{ github.event.inputs.screenshots || 'false' }}
-    steps:
-      # Checkout the code as the first step.
-      - checkout
-      - node/install:
-          node-version: '16'
-      - run: node --version
-      - run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
-      - run:
-          name: Config git variables
-          command: $SCRIPT_DIR/git-config.sh
-      - run:
-          name: 'TOOLS: install node dependencies'
-          command: $SCRIPT_DIR/install-node-dependencies.sh
-      # - node/install-packages:
-      #     # If you are using yarn, change the line below from "npm" to "yarn"
-      #     pkg-manager: npm
-      - run:
-          name: 'TOOLS: display tools'
-          command: $SCRIPT_DIR/display-tools.sh
-      - run:
-          name: 'TOOLS: npm install and link in generator-jhipster-react-native'
-          command: npm i && npm link
-      - run:
-          name: 'SETUP: copy the JDL file for the backend and app'
-          command: $SCRIPT_DIR/copy-jdl-file.sh
-      - run:
-          name: 'GENERATING: generate jhipster backend'
-          command: $SCRIPT_DIR/generate-jhipster-backend.sh
-      - run:
-          name: 'GENERATING: generate react-native app'
-          command: $SCRIPT_DIR/generate-react-native-app.sh
+  # jhipster:
+  #   docker:
+  #     - image: cimg/openjdk:11.0
+  #   environment:
+  #     JHI_REACT_NATIVE_APP_NAME: 'OauthApp'
+  #     JHI_AUTH_TYPE: 'oauth2'
+  #     JHI_DTO: 'false'
+  #     JHIPSTER_VERSION: 7
+  #     SCRIPT_DIR: ./test/scripts
+  #     PLATFORM: ios
+  #     JHI_RECORD_VIDEO: ${{ github.event.inputs.recordVideo || 'false' }}
+  #     JHI_SCREENSHOTS: ${{ github.event.inputs.screenshots || 'false' }}
+  #   steps:
+  #     # Checkout the code as the first step.
+  #     - checkout
+  #     - node/install:
+  #         node-version: '16'
+  #     - run: node --version
+  #     - run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
+  #     - run:
+  #         name: Config git variables
+  #         command: $SCRIPT_DIR/git-config.sh
+  #     - run:
+  #         name: 'TOOLS: install node dependencies'
+  #         command: $SCRIPT_DIR/install-node-dependencies.sh
+  #     # - node/install-packages:
+  #     #     # If you are using yarn, change the line below from "npm" to "yarn"
+  #     #     pkg-manager: npm
+  #     - run:
+  #         name: 'TOOLS: display tools'
+  #         command: $SCRIPT_DIR/display-tools.sh
+  #     - run:
+  #         name: 'TOOLS: npm install and link in generator-jhipster-react-native'
+  #         command: npm i && npm link
+  #     - run:
+  #         name: 'SETUP: copy the JDL file for the backend and app'
+  #         command: $SCRIPT_DIR/copy-jdl-file.sh
+  #     - run:
+  #         name: 'GENERATING: generate jhipster backend'
+  #         command: $SCRIPT_DIR/generate-jhipster-backend.sh
+  #     - run:
+  #         name: 'GENERATING: generate react-native app'
+  #         command: $SCRIPT_DIR/generate-react-native-app.sh
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   generate:
     # These next lines define a Docker executor: https://circleci.com/docs/executor-types/
@@ -85,6 +85,7 @@ jobs:
       - node/install:
           node-version: '16'
       - run: node --version
+      - run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
       - run:
           name: Install Homebrew
           command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
