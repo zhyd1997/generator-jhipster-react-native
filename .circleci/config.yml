@@ -85,6 +85,10 @@ jobs:
       - run:
           name: 'GENERATING: generate react-native app'
           command: $SCRIPT_DIR/generate-react-native-app.sh
+      - macos/preboot-simulator:
+        version: "17.0"
+        platform: "iOS"
+        device: "iPhone 15"
       - run:
           name: 'TESTING: run detox tests'
           command: $SCRIPT_DIR/run-detox-tests.sh
