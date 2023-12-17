@@ -40,6 +40,9 @@ jobs:
       - run:
           name: Config git variables
           command: $SCRIPT_DIR/git-config.sh
+      - run:
+          name: 'TOOLS: install node dependencies'
+          command: $SCRIPT_DIR/install-node-dependencies.sh
       # - node/install-packages:
       #     # If you are using yarn, change the line below from "npm" to "yarn"
       #     pkg-manager: npm
