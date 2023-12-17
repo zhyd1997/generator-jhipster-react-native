@@ -58,6 +58,9 @@ jobs:
       - run:
           name: 'GENERATING: generate jhipster backend'
           command: $SCRIPT_DIR/generate-jhipster-backend.sh
+      - run:
+          name: 'GENERATING: generate react-native app'
+          command: $SCRIPT_DIR/generate-react-native-app.sh
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   generate:
     # These next lines define a Docker executor: https://circleci.com/docs/executor-types/
@@ -83,9 +86,6 @@ jobs:
           node-version: '16'
       - run: node --version
       - run:
-          name: 'GENERATING: generate react-native app'
-          command: $SCRIPT_DIR/generate-react-native-app.sh
-      - run:
           name: Install Homebrew
           command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run:
@@ -100,7 +100,7 @@ jobs:
           device: "iPhone 15"
       - run:
           name: 'TESTING: run detox tests'
-          command: $SCRIPT_DIR/run-detox-tests.sh
+          command: pwd && ls && $SCRIPT_DIR/run-detox-tests.sh
       - run:
           name: 'TESTING: rename detox screenshots to a valid filename'
           command: $SCRIPT_DIR/rename-detox-screenshots.sh
