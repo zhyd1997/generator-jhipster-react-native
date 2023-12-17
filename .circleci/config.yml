@@ -9,13 +9,13 @@ orbs:
   node: circleci/node@5.1.1
   macos: circleci/macos@2
 
-executors:
-  openjdk11:
-    docker:
-      - image: cimg/openjdk:11.0
-  macos:
-    macos:
-      xcode: 15.1.0
+# executors:
+#   openjdk11:
+#     docker:
+#       - image: cimg/openjdk:11.0
+#   macos:
+#     macos:
+#       xcode: 15.1.0
 
 jobs:
   jhipster:
@@ -90,10 +90,40 @@ jobs:
           command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run:
           name: Verify Homebrew installation
-          command: brew --version
+          command: brew --version && brew update
+      - run:
+          name: Install Java 11
+          command: brew install java11 && sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+      - run:
+          name: Verify Java Version
+          command: java --version
       - run:
           name: 'TOOLS: installing Detox and its dependencies'
-          command: $SCRIPT_DIR/install-detox.sh
+          command: $SCRIPT_DIR/install-detox.sh- run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
+      - run:
+          name: Config git variables
+          command: $SCRIPT_DIR/git-config.sh
+      - run:
+          name: 'TOOLS: install node dependencies'
+          command: $SCRIPT_DIR/install-node-dependencies.sh
+      # - node/install-packages:
+      #     # If you are using yarn, change the line below from "npm" to "yarn"
+      #     pkg-manager: npm
+      - run:
+          name: 'TOOLS: display tools'
+          command: $SCRIPT_DIR/display-tools.sh
+      - run:
+          name: 'TOOLS: npm install and link in generator-jhipster-react-native'
+          command: npm i && npm link
+      - run:
+          name: 'SETUP: copy the JDL file for the backend and app'
+          command: $SCRIPT_DIR/copy-jdl-file.sh
+      - run:
+          name: 'GENERATING: generate jhipster backend'
+          command: $SCRIPT_DIR/generate-jhipster-backend.sh
+      - run:
+          name: 'GENERATING: generate react-native app'
+          command: $SCRIPT_DIR/generate-react-native-app.sh
       # - macos/preboot-simulator:
       #     version: "17.0"
       #     platform: "iOS"
@@ -120,9 +150,10 @@ workflows:
   # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/configuration-reference/#workflows
   iOS-E2E:
     jobs:
-      - jhipster
-      - generate:
-          requires:
-            - jhipster
+      - generate
+      # # - jhipster
+      # - generate:
+      #     requires:
+      #       - jhipster
       # For running simple node tests, you could optionally use the node/test job from the orb to replicate and replace the job above in fewer lines.
       # - node/test
