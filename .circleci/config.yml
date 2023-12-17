@@ -44,9 +44,6 @@ jobs:
       #     # If you are using yarn, change the line below from "npm" to "yarn"
       #     pkg-manager: npm
       - run:
-          name: 'TOOLS: installing Detox and its dependencies'
-          command: $SCRIPT_DIR/install-detox.sh
-      - run:
           name: 'TOOLS: display tools'
           command: $SCRIPT_DIR/display-tools.sh
       - run:
@@ -91,6 +88,9 @@ jobs:
       - run:
           name: Verify Homebrew installation
           command: brew --version
+      - run:
+          name: 'TOOLS: installing Detox and its dependencies'
+          command: $SCRIPT_DIR/install-detox.sh
       - macos/preboot-simulator:
           version: "17.0"
           platform: "iOS"
