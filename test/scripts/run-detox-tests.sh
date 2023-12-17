@@ -89,7 +89,7 @@ fi
 
 # run the detox tests
 if [ "$PLATFORM" = "ios" ]; then
-  echo "[]" > ~/Library/Detox/device.registry.state.lock && npm run test:e2e -- --take-screenshots failing --record-videos failing
+  npm run test:e2e -- --take-screenshots failing --record-videos failing
 else
   bash ${GITHUB_WORKSPACE}/${SCRIPT_DIR}/start-android-emulator.sh
   detox test --configuration android.emu.release
