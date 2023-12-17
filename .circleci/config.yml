@@ -85,6 +85,12 @@ jobs:
       - run:
           name: 'GENERATING: generate react-native app'
           command: $SCRIPT_DIR/generate-react-native-app.sh
+      - run:
+          name: Install Homebrew
+          command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run:
+          name: Verify Homebrew installation
+          command: brew --version
       - macos/preboot-simulator:
           version: "17.0"
           platform: "iOS"
