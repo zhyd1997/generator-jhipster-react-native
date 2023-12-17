@@ -69,7 +69,7 @@ jobs:
     macos:
       xcode: 15.1.0
     environment:
-      JHI_REACT_NATIVE_APP_NAME:: 'OauthApp'
+      JHI_REACT_NATIVE_APP_NAME: 'OauthApp'
       JHI_AUTH_TYPE: 'oauth2'
       JHI_DTO: 'false'
       JHIPSTER_VERSION: 7
