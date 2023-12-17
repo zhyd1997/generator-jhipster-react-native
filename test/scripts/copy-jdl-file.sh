@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+pwd
+echo "------"
+ls
+
 # use the specified app JDL file, or default to app.jdl
 APP_JDL=${JHI_APP_JDL:-"app.jdl"}
 
