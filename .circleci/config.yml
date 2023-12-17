@@ -100,7 +100,7 @@ jobs:
           command: java --version
       - run:
           name: 'TOOLS: installing Detox and its dependencies'
-          command: $SCRIPT_DIR/install-detox.sh- run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
+          command: $SCRIPT_DIR/install-detox.sh
       - run:
           name: Config git variables
           command: $SCRIPT_DIR/git-config.sh
