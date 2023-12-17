@@ -41,12 +41,12 @@ jobs:
       - run:
           name: Verify Homebrew installation
           command: brew --version && brew update
-      - run:
-          name: Install Java 11
-          command: brew install java11 && sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-      - run:
-          name: Verify Java Version
-          command: java --version
+      # - run:
+      #     name: Install Java 11
+      #     command: brew install java11 && sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+      # - run:
+      #     name: Verify Java Version
+      #     command: java --version
       - run:
           name: 'TOOLS: installing Detox and its dependencies'
           command: $SCRIPT_DIR/install-detox.sh
