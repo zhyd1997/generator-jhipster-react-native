@@ -94,10 +94,10 @@ jobs:
       - run:
           name: 'TOOLS: installing Detox and its dependencies'
           command: $SCRIPT_DIR/install-detox.sh
-      - macos/preboot-simulator:
-          version: "17.0"
-          platform: "iOS"
-          device: "iPhone 15"
+      # - macos/preboot-simulator:
+      #     version: "17.0"
+      #     platform: "iOS"
+      #     device: "iPhone 15"
       - run:
           name: 'TESTING: run detox tests'
           command: pwd && ls && $SCRIPT_DIR/run-detox-tests.sh
