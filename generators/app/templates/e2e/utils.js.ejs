@@ -105,17 +105,17 @@ const waitForElementToBeVisibleById = async (elementId, timeout = 5000) => {
   await waitFor(element(by.id(elementId))).toBeVisible().withTimeout(timeout);
 }
 
+const waitForElementToBeVisibleByText = async (elementText, timeout = 5000) => {
+  await waitFor(element(by.id(elementText))).toBeVisible().withTimeout(timeout);
+}
+
 const closeDeveloperMenu = async () => {
   await wait(3000);
 
-  await waitFor(element(by.text('Continue')))
-    .toBeVisible()
-    .withTimeout(3000);
+  await waitForElementToBeVisibleByText('Continue);
   await element(by.text('Continue')).tap();
 
-  await waitFor(element(by.text('Reload')))
-    .toBeVisible()
-    .withTimeout(3000);
+  await waitForElementToBeVisibleByText('Reload');
   await element(by.text('Reload')).tap();
 
   await wait(3000);
@@ -158,6 +158,7 @@ module.exports = {
   tapFirstElementByLabel,
   waitForElementToBeVisibleById,
   waitForElementToBeVisibleByLabel,
+  waitForElementToBeVisibleByText,
   toggleSwitchToValue,
   reloadApp,
 };
