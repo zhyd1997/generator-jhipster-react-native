@@ -106,7 +106,7 @@ const waitForElementToBeVisibleById = async (elementId, timeout = 5000) => {
 }
 
 const waitForElementToBeVisibleByText = async (elementText, timeout = 5000) => {
-  await waitFor(element(by.id(elementText))).toBeVisible().withTimeout(timeout);
+  await waitFor(element(by.text(elementText))).toBeVisible().withTimeout(timeout);
 }
 
 const closeDeveloperMenu = async () => {

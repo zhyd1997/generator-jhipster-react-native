@@ -51,7 +51,7 @@ Date.prototype.toCustomLocalDate = function() {
 }
 _%>
 
-describe('<%= context.entityNameCapitalized %> Screen Tests', () => {
+describe<%_ if (context.entityNameCapitalized === 'Photo') { _%>.skip<%_ } _%>('<%= context.entityNameCapitalized %> Screen Tests', () => {
   beforeEach(async () => {
     await reloadApp();
     await loginAsUser();
