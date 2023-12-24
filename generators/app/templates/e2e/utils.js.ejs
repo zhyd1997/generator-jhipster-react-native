@@ -112,7 +112,7 @@ const waitForElementToBeVisibleByText = async (elementText, timeout = 5000) => {
 const closeDeveloperMenu = async () => {
   await wait(3000);
 
-  await waitForElementToBeVisibleByText('Continue);
+  await waitForElementToBeVisibleByText('Continue');
   await element(by.text('Continue')).tap();
 
   await waitForElementToBeVisibleByText('Reload');
